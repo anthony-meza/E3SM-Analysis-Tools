@@ -1,0 +1,15 @@
+diff --git a/src/shared/cvmix_kinds_and_types.F90 b/src/shared/cvmix_kinds_and_types.F90
+index a8682db..d53251d 100644
+--- a/src/shared/cvmix_kinds_and_types.F90
++++ b/src/shared/cvmix_kinds_and_types.F90
+@@ -36,7 +36,8 @@ module cvmix_kinds_and_types
+ 
+   ! Kind Types:
+   ! The cvmix package uses double precision for floating point computations.
+-  integer, parameter, public :: cvmix_r8       = selected_real_kind(15, 307), &
++  integer, parameter, public :: cvmix_r8       = selected_real_kind(6, 37), &
++!  integer, parameter, public :: cvmix_r8       = selected_real_kind(15, 307), &
+                                 cvmix_log_kind = kind(.true.),                &
+                                 cvmix_strlen   = 256
+ 
+

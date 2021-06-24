@@ -1,0 +1,55 @@
+diff --git a/components/mpas-ocean/src/analysis_members/mpas_ocn_okubo_weiss.F b/components/mpas-ocean/src/analysis_members/mpas_ocn_okubo_weiss.F
+index 7706f2d842..efb758b1d1 100644
+--- a/components/mpas-ocean/src/analysis_members/mpas_ocn_okubo_weiss.F
++++ b/components/mpas-ocean/src/analysis_members/mpas_ocn_okubo_weiss.F
+@@ -80,19 +80,19 @@ module ocn_okubo_weiss
+ 
+    interface
+       subroutine compute_ev_2(A, wr, wi) bind(C)!{{{
+-         use iso_c_binding, only: c_double
+-         real (c_double), dimension(2,2) :: A
+-         real (c_double), dimension(2) :: wr
+-         real (c_double), dimension(2) :: wi
++         use iso_c_binding, only: c_float
++         real (c_float), dimension(2,2) :: A
++         real (c_float), dimension(2) :: wr
++         real (c_float), dimension(2) :: wi
+       end subroutine compute_ev_2!}}}
+    end interface
+ 
+    interface
+       subroutine compute_ev_3(A, wr, wi) bind(C)!{{{
+-         use iso_c_binding, only: c_double
+-         real (c_double), dimension(3,3) :: A
+-         real (c_double), dimension(3) :: wr
+-         real (c_double), dimension(3) :: wi
++         use iso_c_binding, only: c_float
++         real (c_float ), dimension(3,3) :: A
++         real (c_float ), dimension(3) :: wr
++         real (c_float ), dimension(3) :: wi
+       end subroutine compute_ev_3!}}}
+    end interface
+ 
+diff --git a/components/mpas-ocean/src/mode_forward/mpas_ocn_time_integration_si.F b/components/mpas-ocean/src/mode_forward/mpas_ocn_time_integration_si.F
+index cac2e793a1..aa9df587ad 100644
+--- a/components/mpas-ocean/src/mode_forward/mpas_ocn_time_integration_si.F
++++ b/components/mpas-ocean/src/mode_forward/mpas_ocn_time_integration_si.F
+@@ -1927,7 +1927,7 @@ module ocn_time_integration_si
+          resid = (crit_main+100.0)**2.0
+ 
+          !**************************************************************!
+-         do while ( dsqrt(resid) > crit_main )
++         do while ( sqrt(resid) > crit_main )
+          !**************************************************************!
+ 
+             iter = iter + 1
+@@ -3250,7 +3250,7 @@ module ocn_time_integration_si
+ 
+             call mpas_dmpar_sum_real(dminfo,local_area_sum,total_area_sum)
+ 
+-            area_mean = dsqrt(total_area_sum / total_num_cells)
++            area_mean = sqrt(total_area_sum / total_num_cells)
+             ncpus = domain % dminfo % nprocs
+             mean_num_cells = total_num_cells/ncpus
+ 
+

@@ -1,0 +1,13 @@
+diff --git a/include/cppdefs.h b/include/cppdefs.h
+index d50319d..0c7d322 100644
+--- a/include/cppdefs.h
++++ b/include/cppdefs.h
+@@ -43,7 +43,7 @@
+ 
+ ! What precision will we use in this compilation
+ #define SINGLE
+-#undef  SINGLE
++! #undef  SINGLE
+ 
+ #ifdef SINGLE
+ #define REALTYPE real(kind=selected_real_kind(6))
