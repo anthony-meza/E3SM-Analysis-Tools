@@ -1,5 +1,5 @@
 
-if [ -d "~/repos/MPAS-Analysis"]
+if [ ! -d "~/repos/MPAS-Analysis" ]
 then
         git clone git@github.com:MPAS-Dev/MPAS-Analysis.git
         
@@ -23,7 +23,7 @@ fi
 #cd ~/repos/MPAS-Analysis/mpas_analysis/diagnostics 
 #mkdir mpas_analysis
 #mkdir observations 
-if [-d "~/repos/MPAS-Analysis/mpas_analysis/diagnostics"]
+if [ ! -d "~/repos/MPAS-Analysis/mpas_analysis/diagnostics" ]
 #DNE, make a dir with this name 
 then    
         cd ~/repos/MPAS-Analysis/mpas_analysis/
