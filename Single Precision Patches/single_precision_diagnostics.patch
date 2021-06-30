@@ -1,0 +1,13 @@
+diff --git a/components/mpas-ocean/src/shared/mpas_ocn_diagnostics.F b/components/mpas-ocean/src/shared/mpas_ocn_diagnostics.F
+index f3fb2db7f5..d0f550b8e3 100644
+--- a/components/mpas-ocean/src/shared/mpas_ocn_diagnostics.F
++++ b/components/mpas-ocean/src/shared/mpas_ocn_diagnostics.F
+@@ -489,7 +489,7 @@ contains
+         !$omp do schedule(runtime) private(cell1, cell2, k)
+         do iEdge = 1, nEdges
+           ! initialize layerThicknessEdge to avoid divide by zero and NaN problems.
+-          layerThicknessEdge(:, iEdge) = -1.0e34_RKIND
++          layerThicknessEdge(:, iEdge) = -1.0e24_RKIND
+           cell1 = cellsOnEdge(1,iEdge)
+           cell2 = cellsOnEdge(2,iEdge)
+           do k = minLevelEdgeBot(iEdge), maxLevelEdgeTop(iEdge)
