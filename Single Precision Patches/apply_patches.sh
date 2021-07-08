@@ -1,5 +1,5 @@
-
-
+#making sure we update and download submodules first
+git submodule update --init
 #single_precision_mpas.patch: The paths in this file assume you are in the E3SM root directory.
 git apply single_precision_mpas.patch
 cp single_precision_bgc.patch ./components/mpas-ocean/src/BGC/single_precision_bgc.patch
